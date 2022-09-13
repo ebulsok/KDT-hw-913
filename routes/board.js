@@ -27,12 +27,15 @@ router.get('/write', (req, res) => {
 });
 
 router.post('/write', (req, res) => {
+  let postID = 1;
+  if (POST.length !== 0) postID = POST[POST.length - 1].id + 1;
+
   if (Object.keys(req.query).length > 0) {
     if (req.query.title && req.query.content) {
       const newPost = {
         title: req.query.title,
         content: req.query.content,
-        id: POST[POST.length - 1].id + 1,
+        id: postID,
       };
       POST.push(newPost);
       res.redirect('/board');
@@ -46,7 +49,7 @@ router.post('/write', (req, res) => {
       const newPost = {
         title: req.body.title,
         content: req.body.content,
-        id: POST[POST.length - 1].id + 1,
+        id: postID,
       };
       POST.push(newPost);
       res.redirect('/board');
