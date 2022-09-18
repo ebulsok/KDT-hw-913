@@ -19,11 +19,11 @@
     <form action="/board/write" method="POST">
       <div>
         <label>제목</label>
-        <input type="text" name="title" />
+        <input type="text" name="title" required />
       </div>
       <div>
         <label>내용</label>
-        <textarea name="content" id="" cols="50" rows="10"></textarea>
+        <textarea name="content" id="" cols="50" rows="10" required></textarea>
       </div>
       <button type="submit">작성</button>
     </form>
